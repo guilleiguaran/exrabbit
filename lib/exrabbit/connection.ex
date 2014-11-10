@@ -18,6 +18,7 @@ defmodule Exrabbit.Connection do
     * `username: <string>` - username used for auth
     * `password: <string>` - password used for auth
     * `host: <string>` - broker host
+    * `port: <int>` - broker port
     * `virtual_host: <string>` - the name of the virtual host in the broker
     * `heartbeat: <int>` - heartbeat interval in seconds (default: 1)
     * `with_chan: <bool>` - open a channel and puts it into the returned struct;
@@ -30,6 +31,7 @@ defmodule Exrabbit.Connection do
       username: get_default(:username),
       password: get_default(:password),
       host: get_default(:host) |> to_char_list,
+      port: get_default(:port),
       virtual_host: get_default(:virtual_host),
       heartbeat: get_default(:heartbeat),
     ], options)
@@ -38,6 +40,7 @@ defmodule Exrabbit.Connection do
       username: conn_settings[:username],
       password: conn_settings[:password],
       host: conn_settings[:host],
+      port: conn_settings[:port],
       virtual_host: conn_settings[:virtual_host],
       heartbeat: conn_settings[:heartbeat]
     ))
@@ -79,6 +82,7 @@ defmodule Exrabbit.Connection do
   defp default(:username), do: "guest"
   defp default(:password), do: "guest"
   defp default(:host), do: "localhost"
+  defp default(:port), do: 5672
   defp default(:virtual_host), do: "/"
   defp default(:heartbeat), do: 1
 end

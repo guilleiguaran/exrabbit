@@ -6,7 +6,7 @@ use Mix.Config
 
 # Connection defaults
 #config :exrabbit, host: "localhost", username: "guest", password: "guest",
-#                  virtual_host: "/", heartbeat: 1
+#                  port: 5672, virtual_host: "/", heartbeat: 1
 
 # Global timeout for confirm-mode
 #config :exrabbit, confirm_timeout: 15000
